@@ -61,6 +61,8 @@ class Field
   //ブロック一つ描画
   drawBlock(bl,px,py)
   {
+    const anim=[0,1,2,1,0];
+    if(bl==368)bl+= anim[ (frameCount>>3)%5 ];
     let sx = (bl&15)<<4;
     let sy = (bl>>4)<<4;
   

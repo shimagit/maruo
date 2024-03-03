@@ -14,15 +14,18 @@ class Block
 
     this.kill = false;
     this.count = 0;
+
+    fieldData[y*FIELD_SIZE_W+x]=367;
   }
 
   //更新処理
   update()
   {
     if(this.kill)return;
-    if(++this.count==10)
+    if(++this.count==11)
     {
       this.kill=true;
+      fieldData[this.oy*FIELD_SIZE_W+this.ox]=this.bl;
       return;
     }
   }
@@ -38,7 +41,7 @@ class Block
     let px = this.x - (field.scx);
     let py = this.y - (field.scy);
 
-    const anim = [0,1,2,3,4,3,2,1,0,-1];
+    const anim = [0,2,4,5,6,5,4,2,0,-2,-1];
 
     py -= anim[ this.count ];
 
