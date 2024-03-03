@@ -53,15 +53,21 @@ class Ojisan
     {
       this.jump = 15;
       this.vy   = 0;
+
+      let x=(lx+8)>>4;
+      let y=(ly+5)>>4;
       
       if(bl!=371)
-        block.push( new Block(bl,(lx+8)>>4,(ly+5)>>4));
+      {
+        block.push( new Block(bl,x,y));
+        item.push( new Item(218,x,y,0,0));
+      }
       else
       {
-        block.push( new Block(bl,(lx+8)>>4,(ly+5)>>4,1, 20,-60));
-        block.push( new Block(bl,(lx+8)>>4,(ly+5)>>4,1,-20,-60));
-        block.push( new Block(bl,(lx+8)>>4,(ly+5)>>4,1, 20,-20));
-        block.push( new Block(bl,(lx+8)>>4,(ly+5)>>4,1,-20,-20));
+        block.push( new Block(bl,x,y,1, 20,-60));
+        block.push( new Block(bl,x,y,1,-20,-60));
+        block.push( new Block(bl,x,y,1, 20,-20));
+        block.push( new Block(bl,x,y,1,-20,-20));
       }
     }
   }
